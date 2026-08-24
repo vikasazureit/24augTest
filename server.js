@@ -1,19 +1,21 @@
 const http = require("http");
 
 const server = http.createServer((req, res) => {
-    const today = new Date();
+    const now = new Date();
 
-    const day = today.toLocaleDateString("en-IN", {
+    const day = now.toLocaleDateString("en-IN", {
         weekday: "long"
     });
 
-    const date = today.toLocaleDateString("en-IN", {
+    const date = now.toLocaleDateString("en-IN", {
         day: "numeric",
         month: "long",
         year: "numeric"
     });
 
-    res.writeHead(200, { "Content-Type": "text/html" });
+    res.writeHead(200, {
+        "Content-Type": "text/html"
+    });
 
     res.end(`
         <html>
